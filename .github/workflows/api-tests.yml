@@ -29,7 +29,12 @@ jobs:
           newman run postman/Login_APi.postman_collection.json \
           -e postman/ReqRes.postman_environment.json \
           --reporters cli,htmlextra \
-          --reporter-htmlextra-export report.html
+          --reporter-htmlextra-export report.html \
+          --reporter-htmlextra-title "API Test Report - Bruno QA" \
+          --reporter-htmlextra-showEnvironmentData \
+          --reporter-htmlextra-logs \
+          --reporter-htmlextra-testPaging \
+          --reporter-htmlextra-browserTitle "QA Automation Report"
       
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
