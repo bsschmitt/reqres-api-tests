@@ -1,41 +1,106 @@
-<h1>API Testing Project – ReqRes</h1>
+# 🚀 API Test Automation with CI/CD
 
-<h2>Overview</h2>
+## Overview
 
-This project contains basic API tests created using Postman for the ReqRes public API.
+This project demonstrates basic API test automation using Postman, executed via Newman, and integrated into a CI/CD pipeline using GitHub Actions.
 
-<h2>Test Coverage:</h2>
-<ul>
-<li>GET Users</li>
-<li>POST Login (success & failure)</li>
-<li>POST Create User</li>
-<li>PUT Update User</li>
-<li>DELETE User</li>
-</ul>
+The goal is to simulate a real-world QA workflow, covering functional, negative, and performance validations.
 
-<h2>Tools Used</h2>
-<ul>
-<li>Postman</li>
-<li>JavaScript (Postman Scripts)</li>
-</ul>
+---
 
-<h2>How to Run</h2>
+## Test Coverage
 
-Import the collection into Postman
+The following scenarios are automated:
 
-Set environment variables:
+* GET Users (list and validation)
+* POST Login (success)
+* POST Login (invalid - negative test)
+* POST Create User
+* PUT Update User
+* DELETE User
+* Response Delay Validation
 
-base_url = https://reqres.in
+---
 
-api_key = your_api_key
+## Tech Stack
 
-Run requests manually or via Collection Runner
+* **Postman** – API testing and request creation
+* **Newman** – CLI runner for Postman collections
+* **JavaScript** – Test scripts and assertions
+* **GitHub Actions** – CI/CD pipeline automation
 
-<h2>Validations</h2>
-<ul>
-<li>Status codes</li>
-<li>Response structure</li>
-<li>Data validation</li>
-<li>Negative scenarios</li>
-</ul>
+---
 
+## Project Structure
+
+```
+reqres-api-tests/
+├── postman/
+│   ├── reqres_collection.json
+│   └── reqres_environment.json
+├── .github/
+│   └── workflows/
+│       └── api-tests.yml
+└── README.md
+```
+
+---
+
+## CI/CD Pipeline
+
+This project uses GitHub Actions to automatically run API tests on every push to the `main` branch.
+
+### Pipeline Steps:
+
+* Checkout repository
+* Setup Node.js environment
+* Install Newman
+* Execute Postman collection
+
+---
+
+## How to Run Locally
+
+### 1. Install Newman
+
+```
+npm install -g newman
+```
+
+### 2. Run the tests
+
+```
+newman run postman/reqres_collection.json -e postman/reqres_environment.json
+```
+
+---
+
+## Test Validations
+
+The tests include:
+
+* Status code validation
+* Response structure validation
+* Data validation (fields, types, values)
+* Negative scenarios
+* Performance check (response time)
+
+---
+
+## Key Learnings
+
+* API test automation with Postman
+* Writing assertions using JavaScript
+* Running tests via CLI (Newman)
+* CI/CD integration with GitHub Actions
+* Debugging pipeline execution issues
+
+
+---
+
+## Contact
+
+Feel free to connect or reach out:
+
+* LinkedIn: https://www.linkedin.com/in/brunostephanschmitt/
+* GitHub: https://github.com/bsschmitt
