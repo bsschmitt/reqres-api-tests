@@ -23,6 +23,6 @@ jobs:
 
       - name: Run Postman Collection
         run: |
-          newman run postman/Login APi.postman_collection.json \
+          newman run postman/Login_APi.postman_collection.json \
           -e postman/ReqRes.postman_environment.json \
           --reporters cli
