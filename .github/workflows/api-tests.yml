@@ -1,22 +1,28 @@
-jobs: 
+name: API Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
   run-api-tests:
     runs-on: ubuntu-latest
 
-  steps:
-  - name: Checkout repository
-    uses: actions/checout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-  - name: Install Node.js 
-    uses: actions/setup-node@v3
-    with:
-      node-version: '18'
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-  - name: Install Newman
-    run: npm install -g Newman
+      - name: Install Newman
+        run: npm install -g newman
 
-  - name: Run Postman Collection
-    run: |
-      Newman run postman/Login APi.postman_collection.json\
-      -e postman\ReqRes.postman_environment.json\
-      --reporters cli
-     
+      - name: Run Postman Collection
+        run: |
+          newman run postman/Login APi.postman_collection.json \
+          -e postman/ReqRes.postman_environment.json \
+          --reporters cli
