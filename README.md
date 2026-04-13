@@ -1,4 +1,4 @@
-# 🚀 API Test Automation with CI/CD
+# API Test Automation with CI/CD
 
 ## Overview
 
